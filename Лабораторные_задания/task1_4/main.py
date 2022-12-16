@@ -1,23 +1,17 @@
-def list_comprehension(words: list) -> list:
-    return [word.capitalize() for word in words]
-
-
-def list_map(words: list) -> list:
-    return list(map(str.capitalize, words))  # TODO
+INPUT_FILE = "input.txt"
+OUTPUT_FILE = "output.txt"
 
 
 def task():
-    list_words = [
-        "goldenROD",
-        "puRPle",
-        "sAlMoN",
-        "TURQUOISE",
-        "cYAN"
-    ]
-
-    print(list_comprehension(list_words))
-    print(list_map(list_words))
+    with open(INPUT_FILE, "r") as input_file:
+        with open(OUTPUT_FILE, "w") as output_file:
+            for upper_line in map(str.upper, input_file):
+                output_file.write(upper_line)
 
 
 if __name__ == "__main__":
     task()
+
+    with open(OUTPUT_FILE) as file:
+        for line in file:
+            print(line, end="")

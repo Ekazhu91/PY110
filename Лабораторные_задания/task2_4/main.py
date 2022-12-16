@@ -6,7 +6,8 @@ def task():
     with open(filename) as f:
         json_data = json.load(f)
 
-    return max(json_data, key=lambda item: item["score"])
+    gen_exr = (item["contains_improvement_appeals"] for item in json_data)
+    return sum(gen_exr)
 
 
 if __name__ == "__main__":

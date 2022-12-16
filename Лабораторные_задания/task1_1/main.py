@@ -1,14 +1,11 @@
-def task() -> int:
-    list_words = [
-        "Goldenrod",
-        "Purple",
-        "Salmon",
-        "Turquoise",
-        "Cyan"
-    ]
+INPUT_FILE = "input.txt"
 
-    return max(len(word) for word in list_words)
+
+def task() -> None:
+    with open(INPUT_FILE) as file:  # TODO открыть указатель на файл
+        for line in file:
+            print(line, end="")# TODO файл является итератором, который работает с циклом for в построчном режиме
 
 
 if __name__ == "__main__":
-    print(task())
+    task()

@@ -1,7 +1,15 @@
-def task(numbers: list) -> int:
-    return sum(num ** 3 for num in numbers if num < 0)
+OUTPUT_FILE = "output.txt"
+
+
+def task():
+    with open(OUTPUT_FILE, "w") as f:
+        f.write(",".join(str(i ** 2) for i in range(1, 11)))
+        f.write("\n")
 
 
 if __name__ == "__main__":
-    list_numbers = [-2, -1, 0, 1, -3, 2, -3]
-    print(task(list_numbers))
+    task()
+
+    with open(OUTPUT_FILE) as file:
+        for line in file:
+            print(line, end="")

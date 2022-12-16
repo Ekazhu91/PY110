@@ -1,16 +1,10 @@
-from itertools import count
+import json
 
 
-def task():
-    num = 2 ** 0  # 1
-    yield num  # TODO с помощью yield вернуть первое число
-
-    for i in count(1, 1):
-        yield 2 ** i  # TODO с помощью yield вернуть оставшиеся степени двойки до бесконечности
+def task() -> str:
+    dict_numbers = {i: i ** 2 for i in range(1, 11)}  # TODO c помощью dict comprehension сформировать словарь
+    return json.dumps(dict_numbers, indent=4)
 
 
 if __name__ == "__main__":
-    numbers = task()
-
-    for _ in range(11):
-        print(next(numbers))
+    print(task())

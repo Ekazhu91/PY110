@@ -1,10 +1,20 @@
-def count(start_number: float = 1, step: float = 1):
-    while True:
-        yield start_number
-        start_number += step
+import json
+
+
+def task(input_filename: str, output_filename: str) -> None:
+    with open(input_filename) as f:
+        json_data = json.load(f)
+
+    with open(output_filename, "w") as f:
+        json.dump(json_data, f, indent=4)
 
 
 if __name__ == "__main__":
-    my_count = count(10, 0.5)
-    for _ in range(10):
-        print(next(my_count))
+    input_file = "input.json"
+    output_file = "output.json"
+
+    task(input_file, output_file)
+
+    with open(output_file) as output_f:
+        for line in output_f:
+            print(line, end="")

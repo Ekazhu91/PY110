@@ -1,8 +1,15 @@
-def task(numbers: list) -> int:
-    gen_exp = (num ** 2 for num in numbers) # TODO записать выражение-генератор для возведения чисел в квадрат
-    return sum(gen_exp)
+OUTPUT_FILE = "output.txt"
+
+
+def task():
+    with open(OUTPUT_FILE, "w") as f:
+        for count_asterisk in range(1, 11):
+            f.write(f"{count_asterisk * '*':>10}\n")
 
 
 if __name__ == "__main__":
-    list_numbers = [i for i in range(1, 11)]  # list(range(1, 11))
-    print(task(list_numbers))
+    task()
+
+    with open(OUTPUT_FILE) as file:
+        for line in file:
+            print(line, end="")
